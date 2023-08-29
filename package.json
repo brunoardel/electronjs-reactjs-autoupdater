@@ -1,12 +1,48 @@
 {
   "name": "devgenius",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "productName": "React Electron App Tutorial",
   "description": "ElectronJS and ReactJS based application",
   "author": "Bruno Ardel",
   "main": "public/electron.js",
   "homepage": "./",
+  "scripts": {
+    "start": "set BROWSER=none && react-scripts start",
+    "start-electron": "set ELECTRON_START_URL=http://localhost:3000 && electron .",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "package": "electron-builder build --win -c.extraMetadata.main=build/electron.js --publish never",
+    "publish": "electron-builder build --win --publish always"
+  },
+  "build": {
+    "appId": "tutorial.reactElectron",
+    "productName": "React Electron App Tutorial",
+    "copyright": "Bruno Ardel",
+    "mac": {
+      "publish": {
+        "provider": "github",
+        "owner": "Bruno Ardel",
+        "repo": "electronjs-reactjs-autoupdater"
+      }
+    },
+    "win": {
+      "publish": {
+        "provider": "github",
+        "owner": "Bruno Ardel",
+        "repo": "electronjs-reactjs-autoupdater"
+      }
+    },
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "publish": {
+      "provider": "github",
+      "owner": "Bruno Ardel"
+    }
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -16,14 +52,9 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
-  "scripts": {
-    "start": "set BROWSER=none && react-scripts start",
-    "start-electron": "set ELECTRON_START_URL=http://localhost:3000 && electron .",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "package": "electron-builder build --win -c.extraMetadata.main=build/electron.js --publish never",
-    "publish": "electron-builder build --win --publish always"
+  "devDependencies": {
+    "electron": "^26.1.0",
+    "electron-builder": "^24.6.3"
   },
   "eslintConfig": {
     "extends": [
@@ -42,38 +73,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "electron": "^26.1.0",
-    "electron-builder": "^24.6.3"
-  },
-  "build": {
-    "mac": {
-      "publish": {
-        "provider": "github",
-        "owner": "Github Owner",
-        "repo": "Repository Name",
-        "private": true,
-        "token": ""
-      }
-    },
-    "win": {
-      "publish": {
-        "provider": "github",
-        "owner": "Github Owner",
-        "repo": "Repository Name",
-        "private": true,
-        "token": ""
-      }
-    },
-    "files": [
-      "build/**/*",
-      "node_modules/**/*"
-    ],
-    "publish": {
-      "provider": "github",
-      "private": true,
-      "owner": "Github Owner"
-    }
   }
 }
