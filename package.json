@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "productName": "React Electron App Tutorial",
+  "author": "Bruno Ardel",
   "main": "public/electron.js",
   "homepage": "./",
   "dependencies": {
